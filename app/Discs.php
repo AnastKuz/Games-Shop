@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Playstation extends Model
+class Discs extends Model
 {
-    protected $fillable = ['name','image','description','price'];
+    protected $fillable = ['name', 'type', 'image','description','price'];
     protected $guarded = ['id','created_at','updated_at'];
 
     public function order()

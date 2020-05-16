@@ -3,21 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Order;
-use App\Playstation;
+use App\Discs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PlaystationController extends Controller
 {
     public function index()
     {
         $orders = Order::all();
-        $playstations = Playstation::all();
-        return view('pages.playstation', ['playstations'=>$playstations, 'orders' => $orders]);
+        $discs = DB::table('discs')->where('type', '=', 'playstation')->get();
+        return view('pages.playstation', ['discs'=>$discs, 'orders' => $orders]);
     }
 
-    public function info()
+    public function show($id)
     {
-        return view('pages.info');
+        $disc = Discs::findOrFail($id);
+        if (!$disc){
+            return abort(404);
+        }
+        return view('pages.show', ['disc'=>$disc]);
     }
 
 }

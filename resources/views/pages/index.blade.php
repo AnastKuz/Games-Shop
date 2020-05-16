@@ -36,7 +36,7 @@
                             Looking for something awesome to play on X-box?
                             Lots of great games are available right now. Click to learn more.
                         </p>
-                        <a href="#" class="btn btn-dark">X-box games</a>
+                        <a href="{{ url('xbox') }}" class="btn btn-dark">X-box games</a>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                             Looking for something awesome to play on Nintendo?
                             Lots of great games are available right now. Click to learn more.
                         </p>
-                        <a href="#" class="btn btn-dark">Nintendo games</a>
+                        <a href="{{ url('nintendo') }}" class="btn btn-dark">Nintendo games</a>
                     </div>
                 </div>
             </div>

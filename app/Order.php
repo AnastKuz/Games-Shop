@@ -9,8 +9,8 @@ class Order extends Model
     protected $fillable = ['session_id', 'product_id', 'count'];
     protected $guarded = ['id','created_at','updated_at'];
 
-    public function playstations()
+    public function discs()
     {
-        return $this->belongsTo(Playstation::class,'product_id','id');
+        return $this->belongsTo(Discs::class,'product_id','id');
     }
 }

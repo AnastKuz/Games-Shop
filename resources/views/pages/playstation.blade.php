@@ -14,20 +14,20 @@
         <div class="album py-5 bg-light">
             <div class="container">
                 <div class="row">
-                    @foreach($playstations as $playstation)
+                    @foreach($discs as $disc)
                         <div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <img class="bd-placeholder-img card-img-top img-fluid p-5" width="100%" src="{{asset($playstation->image)}}">
+                                <img class="bd-placeholder-img card-img-top img-fluid p-5" width="100%" src="{{asset($disc->image)}}">
                                 <div class="card-body">
-                                    <h4>{{$playstation->name}}</h4>
-                                    <p class="card-text">{{$playstation->description}}</p>
+                                    <h4>{{$disc->name}}</h4>
+                                    <p class="card-text">{{$disc->description}}</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <a href="{{route('basket.add', ['id'=>$playstation->id])}}" class="btn btn-dark mr-2">Buy</a>
-                                            <a href="{{--{{route()}}--}}" class="btn btn-dark">Info</a>
+                                            <a href="{{route('basket.add', ['id'=>$disc->id])}}" class="btn btn-dark mr-2">Buy</a>
+                                            <a href="{{route('pages.show', ['disc'=>$disc->id])}}" class="btn btn-dark">Info</a>
                                         </div>
                                         <small>
-                                            ₽{{$playstation->price}}
+                                            ₽{{$disc->price}}
                                         </small>
                                     </div>
                                 </div>
@@ -37,10 +37,5 @@
                 </div>
             </div>
         </div>
-
-
-
-
     </div>
-
 @endsection

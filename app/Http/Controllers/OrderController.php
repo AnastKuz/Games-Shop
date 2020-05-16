@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use Illuminate\Http\Request;
-use App\Playstation;
+use App\Discs;
 use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
@@ -15,7 +15,7 @@ class OrderController extends Controller
         $total = 0;
 
         foreach ($order as $item) {
-            $total += $item->playstations->price * $item->count;
+            $total += $item->discs->price * $item->count;
         }
 
         return view('pages.basket', [

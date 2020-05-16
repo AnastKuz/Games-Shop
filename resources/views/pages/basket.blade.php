@@ -23,20 +23,20 @@
                     <td>#</td>
                     <td>Image</td>
                     <td>Name</td>
-                    <td>Delete</td>
                     <td>Quantity</td>
                     <td>Unit price</td>
                     <td>Total price</td>
+                    <td>Delete</td>
                 </tr>
                 @foreach($orders as $order)
                     <tr>
                         <td>{{$order->id}}</td>
-                        <td><img src='{{asset($order->playstations->image)}}' width="50" height="40" alt="img" /></td>
-                        <td>{{--{{$order->playstations->name}}--}}</td>
-                        <td><a href="{{route('basket.delete', [$order->id])}}">Delete</a></td>
+                        <td><img src='{{asset($order->discs->image)}}' alt="img" /></td>
+                        <td>{{$order->discs->name}}</td>
                         <td>{{$order->count}}</td>
-                        <td>{{--{{$order->playstations->price}}--}}</td>
-                        <td>{{--{{$order->playstations->price * $order->count}}--}}</td>
+                        <td>{{$order->discs->price}}</td>
+                        <td>{{$order->discs->price * $order->count}}</td>
+                        <td><a href="{{route('basket.delete', [$order->id])}}">Delete</a></td>
                     </tr>
                 @endforeach
 

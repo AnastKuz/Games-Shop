@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('count_cart') {{$orders->count() ?? 0}} @endsection
@@ -8,7 +7,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Games for X-box</li>
+                <li class="breadcrumb-item active" aria-current="page">Games for Nintendo</li>
             </ol>
         </nav>
 
