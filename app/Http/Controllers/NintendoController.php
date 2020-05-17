@@ -14,9 +14,4 @@ class NintendoController extends Controller
         $discs = DB::table('discs')->where('type', '=', 'nintendo')->get();
         return view('pages.nintendo', ['discs'=>$discs, 'orders' => $orders]);
     }
-
-    public function info()
-    {
-        return view('pages.info');
-    }
 }

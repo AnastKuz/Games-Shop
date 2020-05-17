@@ -14,9 +14,4 @@ class XboxController extends Controller
         $discs = DB::table('discs')->where('type', '=', 'xbox')->get();
         return view('pages.xbox', ['discs'=>$discs, 'orders' => $orders]);
     }
-
-    public function info()
-    {
-        return view('pages.info');
-    }
 }

@@ -18,11 +18,7 @@ class PlaystationController extends Controller
 
     public function show($id)
     {
-        $disc = Discs::findOrFail($id);
-        if (!$disc){
-            return abort(404);
-        }
-        return view('pages.show', ['disc'=>$disc]);
+        return view('pages.show', ['disc' => Discs::findOrFail($id)]);
     }
 
 }

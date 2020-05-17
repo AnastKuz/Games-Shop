@@ -20,7 +20,6 @@
             <table class="table">
                 <tbody>
                 <tr>
-                    <td>#</td>
                     <td>Image</td>
                     <td>Name</td>
                     <td>Quantity</td>
@@ -30,7 +29,6 @@
                 </tr>
                 @foreach($orders as $order)
                     <tr>
-                        <td>{{$order->id}}</td>
                         <td><img src='{{asset($order->discs->image)}}' alt="img" /></td>
                         <td>{{$order->discs->name}}</td>
                         <td>{{$order->count}}</td>
@@ -39,38 +37,32 @@
                         <td><a href="{{route('basket.delete', [$order->id])}}">Delete</a></td>
                     </tr>
                 @endforeach
-
                 </tbody>
             </table>
 
         </div>
 
-        <div class="row">
-            <div class="col-3 offset-md-6">
-                <strong>TOTAL:{{$total}}</strong>
+        <div class="row mb-5">
+            <div class="col-2 offset-md-7 pl-5">
+                <p class="font-weight-bolder">TOTAL: {{$total}}</p>
             </div>
-        </div>
-        @auth
-            <div class="row mt-1">
-                <div class="col-3 offset-md-6">
-                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#dollarModal">
+            @auth
+                <div class="col-3">
+                    <a href="{{route('pages.order')}}" class="btn btn-dark">
                         Buy
-                    </button>
+                    </a>
                 </div>
-            </div>
-        @endauth
-        @guest
-            <div class="row mt-1">
-                <div class="col-3 offset-md-6">
+            @endauth
+            @guest
+                <div class="col-3">
                     <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#registerModal">
                         Buy
                     </button>
                 </div>
-            </div>
-    @endguest
+            @endguest
+        </div>
 
-
-    <!-- Modal register -->
+        <!-- Modal register -->
         <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -89,8 +81,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 
 @endsection

@@ -24,7 +24,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
                                             <a href="{{route('basket.add', ['id'=>$disc->id])}}" class="btn btn-dark mr-2">Buy</a>
-                                            <a href="{{--{{route()}}--}}" class="btn btn-dark">Info</a>
+                                            <a href="{{route('pages.show', ['id'=>$disc->id])}}" class="btn btn-dark">Info</a>
                                         </div>
                                         <small>
                                             ₽{{$disc->price}}
