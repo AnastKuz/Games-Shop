@@ -2,9 +2,6 @@
 
 namespace App\Mail;
 
-use App\Buyer;
-use App\Discs;
-use App\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -14,16 +11,15 @@ class OrderSent extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $buyer;
+    public $data;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Buyer $buyer)
+    public function __construct($data)
     {
-        $buyer = Buyer::find(1);
-        $this->buyer = $buyer;
+        $this->data = $data;
     }
 
     /**
@@ -34,6 +30,6 @@ class OrderSent extends Mailable
     public function build()
     {
         return $this->from('liannatartt@gmail.com')
-            ->view('emails.orders');
+            ->view('emails.orders', ['data' => $this->data]);
     }
 }

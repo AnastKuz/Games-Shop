@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Buyer;
+use App\Mail\OrderSent;
 use App\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class OrderRegisterController extends Controller
 {
@@ -46,6 +48,11 @@ class OrderRegisterController extends Controller
         ]);
 
         $buyer->save();
+    }
+
+    public function send() {
+        $data = Order::all();
+        Mail::to('liannatartt@gmail.com')->send(new OrderSent($data));
         return redirect('/')->with('status', 'Your order has been accepted! Check your email.');
     }
 

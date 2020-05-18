@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('count_cart') {{$orders->count() ?? 0}} @endsection
+
 @section('content')
 
     <div class="container">

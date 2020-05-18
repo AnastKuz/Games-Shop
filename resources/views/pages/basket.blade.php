@@ -48,7 +48,7 @@
             </div>
             @auth
                 <div class="col-3">
-                    <a href="{{route('pages.order')}}" class="btn btn-dark">
+                    <a href="{{route('pages.order')}}" class="btn btn-dark mr-2">
                         Buy
                     </a>
                 </div>

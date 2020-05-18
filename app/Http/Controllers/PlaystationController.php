@@ -18,7 +18,8 @@ class PlaystationController extends Controller
 
     public function show($id)
     {
-        return view('pages.show', ['disc' => Discs::findOrFail($id)]);
+        $orders = Order::all();
+        return view('pages.show', ['disc' => Discs::findOrFail($id), 'orders' => $orders]);
     }
 
 }

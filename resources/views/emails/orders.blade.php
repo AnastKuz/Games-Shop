@@ -5,21 +5,15 @@
 </head>
 <body>
 
-<p>Thank you, {{$buyers->name}} for buying games at Games Shop!</p>
+<p>Thank you for buying games at Games Shop!</p>
 
 <h4>Your games:</h4>
 
-<ul class="list-group">
-    @foreach($orders as $order)
-    <li class="list-group-item">{{$order->discs->name}} - {{$order->discs->price}}</li>
-    @endforeach
-</ul>
+@foreach($data as $d)
+   <li class="list-group-item">{{$d->discs->name}} - {{$d->discs->price}} rub</li>
+@endforeach
 
-<p>Total price: {{$total}}</p>
-
-<p>Games will be delivered to {{$buyers->address}} on {{$buyers->date}} at {{$buyers->time}}.</p>
-
-<p>Thank you!</p>
+<p>We will be happy to see you soon!</p>
 
 </body>
 </html>

@@ -75,7 +75,7 @@
                         <label for="wishes">Additional info</label>
                         <textarea class="form-control" id="wishes" rows="3" placeholder="Enter additional info here..." name="wishes"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-dark">Order</button>
+                    <a href="{{route('orders')}}" class="btn btn-dark">Order</a>
                 </form>
             </div>
         </div>
