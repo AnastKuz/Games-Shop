@@ -25,6 +25,25 @@
                         </ul>
                     </div><br />
                 @endif
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td>Name</td>
+                            <td>Quantity</td>
+                            <td>Unit price</td>
+                        </tr>
+                        @foreach($orders as $order)
+                            <tr>
+                                <td>{{$order->discs->name}}</td>
+                                <td>{{$order->count}}</td>
+                                <td>{{$order->discs->price}}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                    <div class="col-3 offset-8">
+                        <p class="font-weight-bolder mr-5">Total price: {{$total}}</p>
+                    </div>
                 <form method="POST" action="{{ route('pages.store') }}">
                     @csrf
                     <div class="form-group">

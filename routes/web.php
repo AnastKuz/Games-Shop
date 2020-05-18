@@ -1,5 +1,8 @@
 <?php
 
+use App\Buyer;
+use App\Discs;
+use App\Order;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,3 +35,22 @@ Route::get('/basket/delete/{id}', 'OrderController@delete')->name('basket.delete
 
 Route::get('/order', 'OrderRegisterController@index')->name('pages.order');
 Route::post('/order', 'OrderRegisterController@store')->name('pages.store');
+/*
+Route::get('orders', function () {
+
+    $buyer = App\Buyer::find(1);
+
+    Mail::to('liannatartt@gmail.com')->send(new \App\Mail\OrderSent($buyer));
+
+    dd("success");
+
+});*/
+
+Route::get('orders', function () {
+
+    return view('emails.orders');
+});
+
+Route::get('/test', 'TestController@index')->name('test');
+
+

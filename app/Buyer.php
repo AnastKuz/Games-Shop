@@ -8,6 +8,6 @@ class Buyer extends Model
 {
     protected $table = 'buyers';
 
-    protected $fillable = ['email', 'name', 'phone', 'address', 'date', 'time', 'wishes'];
+    protected $fillable = ['game', 'quantity', 'price', 'total', 'email', 'name', 'phone', 'address', 'date', 'time', 'wishes'];
     protected $guarded = ['id','created_at','updated_at'];
 }

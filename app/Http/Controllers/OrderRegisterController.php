@@ -10,8 +10,17 @@ class OrderRegisterController extends Controller
 {
     public function index()
     {
-        $orders = Order::all();
-        return view('pages.order', ['orders' => $orders]);
+        $order = Order::all();
+        $total = 0;
+
+        foreach ($order as $item) {
+            $total += $item->discs->price * $item->count;
+        }
+
+        return view('pages.order', [
+            'orders' => $order,
+            'total' => $total,
+        ]);
     }
 
     public function store(Request $request)
@@ -23,6 +32,7 @@ class OrderRegisterController extends Controller
             'address'=>'required',
             'date'=>'required',
             'time'=>'required',
+            'wishes'=>'required'
         ]);
 
         $buyer = new Buyer([
@@ -36,7 +46,7 @@ class OrderRegisterController extends Controller
         ]);
 
         $buyer->save();
-        return redirect('/')->with('success', 'Ordered!');
+        return redirect('/')->with('status', 'Your order has been accepted! Check your email.');
     }
 
 }
